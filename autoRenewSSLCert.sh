@@ -8,6 +8,8 @@ if ! /letsencrypt/letsencrypt-auto renew > /var/log/letsencrypt/renew.log 2>&1 ;
 fi
  cat /var/log/letsencrypt/renew.log
 
+cd /usr/local/openvpn_as/scripts
+
 echo "Updating private key"
 ./confdba -mk cs.priv_key --value_file=/etc/letsencrypt/live/$HOSTNAME/privkey.pem
 echo "Updating ca bundle"
